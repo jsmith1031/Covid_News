@@ -13,7 +13,7 @@ soup = bs(html,'html.parser')
 h = soup.find_all('div', class_='ContentRoll__Headline')
 
 
-
+#Print out the news along with desc and link
 
 for i in h:
     mlink = bs(str(i),'html.parser')
