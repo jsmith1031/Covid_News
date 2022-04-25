@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: newsArticlesTable()
+        child: newsArticlesTable(context)
         //TableCreation.build(),
       ),
       /*floatingActionButton: FloatingActionButton(
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
     //return TableCreation();
   }
 
-  Column newsArticlesTable() {
+  Column newsArticlesTable(BuildContext context) {
     return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -116,13 +116,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   TableRow(children: [
                     Text('Article 1', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
                     Text('Article 2', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text('Article 3', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
+                    newsArticles(context),
                   ]),
                   TableRow(children: [
                     Text('Article 4', textAlign: TextAlign.center),
-                    Text('Article 5', textAlign: TextAlign.center),
+                   getNewsSourceLogo(),
                     //Text('Article 6', textAlign: TextAlign.center),
-                    newsArticles(),
+                    newsArticles(context),
                   ]),
                 ],
               ),
@@ -130,12 +130,25 @@ class _MyHomePageState extends State<MyHomePage> {
           ]);
   }
 }
+Image getNewsSourceLogo(){
+  return Image.network(
+    //'https://w7.pngwing.com/pngs/142/945/png-transparent-abc-news-radio-new-york-city-breaking-news-others-text-logo-united-states-thumbnail.png'
+    
+    //images wont load from CORS domain
+    //https://flutter.dev/docs/development/platform-integration/web-images
+    'https://1000logos.net/wp-content/uploads/2021/10/ABC-logo-768x432.png'
+    );
+}
 
-Container newsArticles(){
-  return Container(child
-                               : Text("Hello! i am inside a container!",
+Container newsArticles(BuildContext context){
+  
+  return Container(child: 
+                                      Text("Hello! i am inside a container!",
                                       style
                                       : TextStyle(fontSize : 20)),
+                                      width: 0.3,
+                                      height: MediaQuery.of(context).size.height * 0.45,
+                                      
                               );
 }
 
