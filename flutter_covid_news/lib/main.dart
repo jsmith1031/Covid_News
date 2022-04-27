@@ -1,5 +1,210 @@
 //library covid_news;
 
+//import '../flutter_flow/flutter_flow_ad_banner.dart';
+//import '../flutter_flow/flutter_flow_theme.dart';
+//import '../flutter_flow/flutter_flow_util.dart';
+//import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/material.dart';
+//import 'package:google_fonts/google_fonts.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Covid News',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+      home: HomePageWidget(),
+    );
+  }
+}
+
+class HomePageWidget extends StatefulWidget {
+  const HomePageWidget({Key? key}) : super(key: key);
+
+  @override
+  _HomePageWidgetState createState() => _HomePageWidgetState();
+}
+
+class _HomePageWidgetState extends State<HomePageWidget> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: scaffoldKey,
+      //backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(4, 4, 0, 0),
+                  child: TextButton(
+                    //child: FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    child: Text('Check Local News'),
+                    /*options: FFButtonOptions(
+                      width: 250,
+                      height: 40,
+                      color: Color(0xFF008080),
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                              ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: 12,
+                    ),*/
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 0),
+                  child: TextButton(
+                    //child: FFButtonWidget(
+                    onPressed: () {
+                      print('Button pressed ...');
+                    },
+                    child: Text('Symptom Checker'),
+                    /*options: FFButtonOptions(
+                      width: 250,
+                      height: 40,
+                      color: Color(0xFF008080),
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                              ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: 12,
+                    ),*/
+                  ),
+                ),
+              ],
+            ),
+            Divider(),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
+                  child: Text(
+                    'Recent Covid News',
+                    //style: FlutterFlowTheme.of(context).bodyText1,
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 50, 0),
+                  /*child: FlutterFlowAdBanner(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    height: 50,
+                    showsTestAd: true,
+                  ),*/
+                ),
+              ],
+            ),
+            Expanded(
+              child: GridView(
+                padding: EdgeInsets.zero,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 1,
+                ),
+                scrollDirection: Axis.vertical,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+                    child: Card(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      color: Color(0xFFF5F5F5),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 10, 0, 0),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/100/600',
+                                  width: 50,
+                                  height: 50,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10, 10, 10, 0),
+                                      child: Text(
+                                        'This is the sample article title',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 20),
+                                        /*style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 24,
+                                            ),*/
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                            child: Text(
+                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                              //style: FlutterFlowTheme.of(context).bodyText1,
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/*
 import 'package:flutter/material.dart';
 import 'newsArticles.dart';
 import 'appTopBar.dart';
@@ -24,6 +229,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //print(MediaQuery.of(context).size.height);
+    //print(MediaQuery.of(context).size.width);
     return MaterialApp(
       title: 'Covid News',
       theme: ThemeData(
@@ -168,3 +375,4 @@ Container builtArticle(BuildContext context) {
     height: MediaQuery.of(context).size.height * 0.40,
   );
 }
+*/
