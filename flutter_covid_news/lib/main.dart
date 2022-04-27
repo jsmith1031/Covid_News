@@ -1,4 +1,9 @@
+//library covid_news;
+
 import 'package:flutter/material.dart';
+import 'newsArticles.dart';
+import 'appTopBar.dart';
+//import 'lib/library.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +14,12 @@ class MyApp extends StatelessWidget {
 
   void switchScreen() {
     //setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-    }
+    // This call to setState tells the Flutter framework that something has
+    // changed in this State, which causes it to rerun the build method below
+    // so that the display can reflect the updated values. If we changed
+    // _counter without calling setState(), then the build method would not be
+    // called again, and so nothing would appear to happen.
+  }
 
   // This widget is the root of your application.
   @override
@@ -22,19 +27,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Covid News',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.teal,
       ),
-      home: const MyHomePage(title: 'Covid News Home Page'),
- /*     switchToScreen: FloatingActionButton(
+      //home: const MyHomePage(title: 'Covid News Home Page'),
+      home: MyStatelessWidget(),
+      /*     switchToScreen: FloatingActionButton(
         onPressed: switchScreen(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
@@ -82,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -90,65 +87,84 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: newsArticlesTable(context)
-        //TableCreation.build(),
+        child: //getArticle(context)),
+            Column(
+          children: <Widget>[
+            Container(
+              child: getNewsSourceLogo(),
+            ),
+            /*Container(
+              child: Text(
+                'Welcome to Prime Message',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Aleo',
+                    fontStyle: FontStyle.normal,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25.0,
+                    color: Colors.black),
+              ),
+            ),*/
+          ],
+        ),
       ),
-      /*floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-      */ 
+      //body: Center(child: newsArticlesTable(context)),
     );
-    
+
     //return TableCreation();
   }
 
   Column newsArticlesTable(BuildContext context) {
     return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-            Container(
-              margin: EdgeInsets.all(10),
-              child: Table(
-                border: TableBorder.all(),
-                children: [
-                  TableRow(children: [
-                    Text('Article 1', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text('Article 2', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
-                    newsArticles(context),
-                  ]),
-                  TableRow(children: [
-                    Text('Article 4', textAlign: TextAlign.center),
-                   getNewsSourceLogo(),
-                    //Text('Article 6', textAlign: TextAlign.center),
-                    newsArticles(context),
-                  ]),
-                ],
-              ),
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(10),
+            child: Table(
+              border: TableBorder.all(width: 0),
+              children: [
+                TableRow(children: [
+                  Text('Article 1',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text('Article 2',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  builtArticle(context),
+                ]),
+                TableRow(children: [
+                  Text('Article 4', textAlign: TextAlign.center),
+                  getNewsSourceLogo(),
+                  //Text('Article 6', textAlign: TextAlign.center),
+                  builtArticle(context),
+                ]),
+              ],
             ),
-          ]);
+          ),
+        ]);
   }
 }
-Image getNewsSourceLogo(){
-  return Image.network(
-    //'https://w7.pngwing.com/pngs/142/945/png-transparent-abc-news-radio-new-york-city-breaking-news-others-text-logo-united-states-thumbnail.png'
-    
-    //images wont load from CORS domain
-    //https://flutter.dev/docs/development/platform-integration/web-images
-    'https://1000logos.net/wp-content/uploads/2021/10/ABC-logo-768x432.png'
-    );
+
+Image getNewsSourceLogo() {
+  Image abcLogo = Image.network(
+      //'https://w7.pngwing.com/pngs/142/945/png-transparent-abc-news-radio-new-york-city-breaking-news-others-text-logo-united-states-thumbnail.png'
+
+      //images wont load from CORS domain
+      //https://flutter.dev/docs/development/platform-integration/web-images
+      'https://1000logos.net/wp-content/uploads/2021/10/ABC-logo-768x432.png',
+      width: 50,
+      height: 50,
+      fit: BoxFit.scaleDown);
+  return abcLogo;
 }
 
-Container newsArticles(BuildContext context){
-  
-  return Container(child: 
-                                      Text("Hello! i am inside a container!",
-                                      style
-                                      : TextStyle(fontSize : 20)),
-                                      width: 0.3,
-                                      height: MediaQuery.of(context).size.height * 0.45,
-                                      
-                              );
+Container builtArticle(BuildContext context) {
+  print(MediaQuery.of(context).size.height);
+  print(MediaQuery.of(context).size.height * 0.40);
+  return Container(
+    child:
+        Text("Hello! i am inside a container!", style: TextStyle(fontSize: 20)),
+    width: 0.3,
+    height: MediaQuery.of(context).size.height * 0.40,
+  );
 }
-
