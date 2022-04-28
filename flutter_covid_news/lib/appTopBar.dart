@@ -1,5 +1,5 @@
 // ignore_for_file: avoid_print
-
+/*
 import '../flutter_flow/flutter_flow_ad_banner.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -181,8 +181,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   }
 }
 
+*/
 
-/*
 library covid_news;
 
 import 'package:flutter/material.dart';
@@ -332,4 +332,3 @@ class MyStatelessWidget extends StatelessWidget {
     );
   }
 }
-*/
