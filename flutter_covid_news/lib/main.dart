@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'newsArticles.dart';
 import 'appTopBar.dart';
 import 'SymptomCheckerPage.dart';
+import 'request.dart';
+import 'dart:convert';
 
 void main() {
   runApp(const MyApp());
@@ -65,6 +67,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             textStyle: const TextStyle(fontSize: 20),
                           ),
                           onPressed: () {
+                            testAsyncMethod();
                             Navigator.of(context).push(_createRoute());
                           },
                           child: const Text('Symptom Checker'),
@@ -260,6 +263,14 @@ Route _createRoute() {
       return child;
     },
   );
+}
+
+Future testAsyncMethod() async {
+  print("HERE");
+  String localHost = 'http://127.0.0.1:5000/';
+  var data = await getData(Uri.parse(localHost));
+  var decodedData = jsonDecode(data);
+  print(decodedData['query']);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
