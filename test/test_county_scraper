@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-#
+#CHECK WHERE TO PLACE GET/POST FOR SECURITY REASONS
 #@app.route add here method=['GET','POST']
 def covid_numbers(countyy):
 
