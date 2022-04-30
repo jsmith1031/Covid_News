@@ -266,7 +266,7 @@ Route _createRoute() {
 }
 
 Future testAsyncMethod() async {
-  print("HERE");
+  //print("HERE");
   String localHost = 'http://127.0.0.1:5000/';
   var data = await getData(Uri.parse(localHost));
   var decodedData = jsonDecode(data);
