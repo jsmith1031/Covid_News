@@ -135,85 +135,6 @@ class ButtonColoring extends StatelessWidget {
   }
 }
 
-class newsGridView extends StatelessWidget {
-  const newsGridView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView(
-      padding: EdgeInsets.zero,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        childAspectRatio: 1,
-      ),
-      scrollDirection: Axis.vertical,
-      children: [
-        Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-          child: Card(
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            color: Color(0xFFF5F5F5),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-                      child: Image.network(
-                        'https://picsum.photos/seed/100/600',
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                            child: Text(
-                              'This is the sample article title',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 20),
-                              /*style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 24,
-                                  ),*/
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                  child: Text(
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-                    //style: FlutterFlowTheme.of(context).bodyText1,
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class topBarButton extends StatelessWidget {
   const topBarButton({
     Key? key,
@@ -265,29 +186,6 @@ Route _createRoute() {
   );
 }
 
-Future testAsyncMethod() async {
-  //print("HERE");
-  String localHost = 'http://127.0.0.1:5000/';
-  var data = await getData(Uri.parse(localHost));
-  var decodedData = jsonDecode(data);
-  print(decodedData['query']);
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
-Image getNewsSourceLogo() {
-  Image abcLogo = Image.network(
-      //'https://w7.pngwing.com/pngs/142/945/png-transparent-abc-news-radio-new-york-city-breaking-news-others-text-logo-united-states-thumbnail.png'
-
-      //images wont load from CORS domain
-      //https://flutter.dev/docs/development/platform-integration/web-images
-      'https://1000logos.net/wp-content/uploads/2021/10/ABC-logo-768x432.png',
-      width: 50,
-      height: 50,
-      fit: BoxFit.scaleDown);
-  return abcLogo;
-}

@@ -38,20 +38,9 @@ class _SymptomCheckerWidgetState extends State<SymptomCheckerWidget> {
       appBar: AppBar(
         //backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
-        /*leading: FFButtonWidget(
-          onPressed: () async {
-            await Navigator.push(
-              context,
-              PageTransition(
-                type: PageTransitionType.fade,
-                duration: Duration(milliseconds: 0),
-                reverseDuration: Duration(milliseconds: 0),
-                child: HomePageWidget(),
-              ),
-            );
-          },
+        /*
           text: 'Back',
-          options: FFButtonOptions(
+          options: button options(
             width: 130,
             height: 40,
             color: FlutterFlowTheme.of(context).primaryColor,
