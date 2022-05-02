@@ -17,12 +17,19 @@ Email: [bibek99@vt.edu](mailto::bibek99@vt.edu)
 
 * Flutter
 * Python 3.0 or newer
+* * BeautifulSoup
+* * pyttsx3
 
 <br></br>
 ## Build Instructions
 
 ```
-./build.sh
+flask run
+```
+\
+then (in another terminal)
+```
+flutter run
 ```
 
 
@@ -30,6 +37,6 @@ Email: [bibek99@vt.edu](mailto::bibek99@vt.edu)
 
 Following this tutorial: [codelabs](https://codelabs.developers.google.com/codelabs/flutter#1\
 Download the flutter SDK  [here](https://docs.flutter.dev/get-started/install)\
-Since flutter is almost 3GB, I suggest moving the directory location before adding to enviroment path variables.\
-Once you have flutter installed, if you're using Visual Studio Code, download the Flutter extension from the marketplace. If not, there are tools for using Flutter with other IDEs  [here](https://docs.flutter.dev/get-started/test-drive?tab=terminal)\
-asdf
+Since flutter is almost 3GB, I suggest moving the directory location before adding to enviroment path variables. Also know when the flutter install location is,because if you are debugging in chrome, you will probably need to add '--disable-web-security' to the launch arguments to connect to a local flask server.\
+Once you have flutter installed, if you're using Visual Studio Code, download the Flutter extension from the marketplace. If not, there are tools for using Flutter with other IDEs  [here](https://docs.flutter.dev/get-started/test-drive?tab=terminal)
+

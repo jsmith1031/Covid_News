@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import csv
 #Load the webpage content
+import time #Jeffrey testing some stuff, remove later with sleep method
 import pyttsx3
 engine = pyttsx3.init(driverName='nsss')
 voices = engine.getProperty('voices')
@@ -35,34 +36,52 @@ def cnn_news():
             link = mlink.find('a')
             lk = link.get('href')
 
-            #if lk[0]=='h':
-                #print(lk)
-            #else:
-                #print("www.cnn.com"+lk)
-            #print("-----------------------")
-
-        try:#Making sure both the title and summary are valid, 
-            #because there are some exception cases where one of them isnt valid and crashes the program
-            titleString = title.string
-            #bodyText = summary.string
-        except:
-            titleString = ""
-            bodyText = ""
-
-        for li in mlink.find_all('a'):
-            if count==1:
-                #print(li.get('href'))
-                linkString = li.get('href')
-                break
+            if lk[0]=='h':
+                print(lk)
             else:
-                count+=1
-        if bodyText != "":
-            article = {
-                "title" : titleString,
-                "body" : bodyText,
-                "link" : ("www.cnn.com"+lk),
-            }
-            test_articles.append(article)
+                print("www.cnn.com"+lk)
+            
+            #Now open the article link and fetch a summary
+        
+            articleLink = requests.get("https://www.cnn.com"+lk)
+            articlehtml = articleLink.content
+            articlesoup = bs(articlehtml,'html.parser')
+            articleTextButHTML = soup.find_all('div', class_='l-container')
+            print(str(articleTextButHTML))
+
+            for a in articleTextButHTML:    
+                subSearch = bs(str(a),'html.parser')
+                summary = mlink.find('div', class_='zn-body__paragraph')
+                print(str(summary))
+            #summary = articlesoup.find('p', class_='zn-body__paragraph')
+            #print(summary.string)
+            print("-----------------------")
+            time.sleep(30)
+
+def addArticle():
+    try:#Making sure both the title and summary are valid, 
+        #because there are some exception cases where one of them isnt valid and crashes the program
+        titleString = title.string
+        bodyText = summary.string
+    except:
+        titleString = ""
+        bodyText = ""
+
+    for li in mlink.find_all('a'):
+        if count==1:
+            #print(li.get('href'))
+            linkString = li.get('href')
+            break
+        else:
+            count+=1
+    if bodyText != "":
+        article = {
+            "title" : titleString,
+            "body" : bodyText,
+            "link" : ("www.cnn.com"+lk),
+        }
+        test_articles.append(article)
+
 
 
 
