@@ -7,6 +7,7 @@ engine = pyttsx3.init(driverName='nsss')
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[7].id)
 
+test_articles = []
 
 def cnn_news():
 
@@ -29,18 +30,50 @@ def cnn_news():
         title = mlink.find('span',class_="cd__headline-text")
         if count < 5 or count > 12:
             print(title.string)
-            engine.say(title.string)
-            engine.runAndWait()
+            #engine.say(title.string)
+            #engine.runAndWait()
             link = mlink.find('a')
             lk = link.get('href')
 
-            if lk[0]=='h':
-                print(lk)
+            #if lk[0]=='h':
+                #print(lk)
+            #else:
+                #print("www.cnn.com"+lk)
+            #print("-----------------------")
+
+        try:#Making sure both the title and summary are valid, 
+            #because there are some exception cases where one of them isnt valid and crashes the program
+            titleString = title.string
+            #bodyText = summary.string
+        except:
+            titleString = ""
+            bodyText = ""
+
+        for li in mlink.find_all('a'):
+            if count==1:
+                #print(li.get('href'))
+                linkString = li.get('href')
+                break
             else:
-                print("www.cnn.com"+lk)
-            print("-----------------------")
+                count+=1
+        if bodyText != "":
+            article = {
+                "title" : titleString,
+                "body" : bodyText,
+                "link" : ("www.cnn.com"+lk),
+            }
+            test_articles.append(article)
 
 
 
 
+cnn_news()
 
+#remove duplicates 
+articles = []
+for i in test_articles:
+    if i not in articles:
+        articles.append(i)
+
+def getArticles():
+    return articles
