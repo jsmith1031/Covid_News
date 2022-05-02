@@ -1,5 +1,12 @@
 from flask import Flask
 from flask import jsonify
+import sys
+sys.path.append('../')
+
+import web_scrapper_news.nbc_news
+
+#from web_scrapper_news.nbc_news import nbc_news
+#from web_scrapper_news.nbc_news import getTitleString
 
 app = Flask(__name__)
 
@@ -9,7 +16,9 @@ app = Flask(__name__)
 def about():
     #return '<h1 style=font-size:200px>This webpage works!!!</h1>'
     json_file = {}
-    json_file['query'] = 'hello_world'
+    #print(getTitleString())
+    json_file['nbc_news'] = web_scrapper_news.nbc_news.getArticles()
+    #json_file['titleString'] = web_scrapper_news.nbc_news.getTitleString()
     return jsonify(json_file)
 
 

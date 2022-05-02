@@ -6,8 +6,11 @@ import csv
 #NBC NEWS
 
 #Load the webpage content
+articles = []
 
-
+#titleString = ""
+#bodyText = ""
+#linkString = ""
 
 r = requests.get("https://www.bbc.com/news/coronavirus")
 
@@ -24,13 +27,40 @@ for i in h:
     title = mlink.find('h3',class_='gs-c-promo-heading__title')
     count = 0
     summary = mlink.find('p',class_='gs-c-promo-summary')
-    print(title.string)
-    print(summary.string)
+    
+    try:
+        titleString = title.string
+        bodyText = summary.string
+    except:
+        titleString = ""
+        bodyText = ""
     for li in mlink.find_all('a'):
         if count==1:
-            print(li.get('href'))
+            #print(li.get('href'))
+            linkString = li.get('href')
             break
         else:
             count+=1
-    print("--------------")
+    if bodyText != "":
+        article = {
+            "title" : titleString,
+            "body" : bodyText,
+            "link" : linkString,
+        }
+        articles.append(article)
+    #print("--------------")
 
+#for a in articles:
+#    print(a["title"], "\n", a["body"], "\n", a["link"], "\n______________________")
+
+def getArticles():
+    return articles
+
+def getTitleString():
+    return titleString
+
+#def getBodyTest():
+#    return bodyText
+
+def getLinkString():
+    return linkString
