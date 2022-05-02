@@ -47,6 +47,8 @@ for i in h:
         }
         test_articles.append(article)
 
+
+#remove duplicates 
 articles = []
 for i in test_articles:
     if i not in articles:

@@ -24,6 +24,16 @@ class articleStructure {
 
 var articles = List<articleStructure>.empty(growable: true);
 //var articles;
+decodeMap(Map decoded, String source_name, String logoLink) {
+  for (var word in decoded[source_name]) {
+    //print(word['body']);
+    //print(word['link']);
+    print(word['title']);
+    articleStructure article = new articleStructure(
+        word['title'], word['body'], word['link'], logoLink);
+    articles.add(article);
+  }
+}
 
 Future testAsyncMethod() async {
   //print("HERE");
@@ -32,7 +42,7 @@ Future testAsyncMethod() async {
   //var decodedData = jsonDecode(data);
   //print(decodedData['nbc_news']);
   Map decoded = jsonDecode(data);
-  for (var word in decoded['nbc_news']) {
+  /*for (var word in decoded['nbc_news']) {
     //print(word['body']);
     //print(word['link']);
     print(word['title']);
@@ -42,7 +52,11 @@ Future testAsyncMethod() async {
         word['link'],
         "https://mlt.org/wp-content/uploads/2020/07/nbc-news-logo.png");
     articles.add(article);
-  }
+  }*/
+  decodeMap(decoded, 'nbc_news',
+      "https://mlt.org/wp-content/uploads/2020/07/nbc-news-logo.png");
+  decodeMap(decoded, 'fox_news',
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_News_Channel_logo.svg/1920px-Fox_News_Channel_logo.svg.png");
 }
 
 class newsGridView extends StatelessWidget {
