@@ -1,20 +1,12 @@
 from tkinter import *
 import time
-import abc_news as ab
-import fox_news as fx
-import news_virginia_nbc as va
-import covid_articles as article
 import webbrowser
 from tkHyperLink import *
 from functools import partial
-import threading
-import pyttsx3
 import get_response as response
 import trial
 import os
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[7].id)
+
 
 
 BG_GRAY = "#ABB2B9"
@@ -24,7 +16,7 @@ TEXT_COLOR = "#EAECEE"
 FONT = "Helvetica 14"
 FONT_BOLD = "Helvetica 13 bold"
 
-
+# chatbot class for designing and implementing chatbot
 class ChatApplication:
 
     def __init__(self):
@@ -92,7 +84,7 @@ class ChatApplication:
         send_button.place(relx=0.77, rely=0.008, relheight=0.06, relwidth=0.22)
 
 
-
+    # function to perform when ENTER key is pressed, the input is displayed in chatbot
     def _on_enter_pressed(self, event):
         msg = self.msg_entry.get()
         if msg in ['clear','del','delete','new']:
@@ -107,11 +99,11 @@ class ChatApplication:
         time.sleep(1)
 
 
-
+        # function call for response
         self._insert_message(msg, "You")
 
 
-
+    # function to return the output of the by calling response function
     def _insert_message(self, msg, sender):
 
         if not msg:
