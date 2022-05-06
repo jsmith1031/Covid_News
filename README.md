@@ -15,6 +15,8 @@ Email: [bibek99@vt.edu](mailto::bibek99@vt.edu)
 # Tkinter Based GUI for CoVBOT
 - Tkinter based gui is created for the bot. This allows BOT to be interactive with users and at the same time provide users with all the necessary infromation related to the COVID-19 Pandemic.
 - This BOT can be used to fetch news, articles and daily COVID-19 cases in each county based on the zipcode provided for the state of VA.
+- The main program is located in the directory **gui-tinkter** along with all the dependent code and program files.
+
 
 
 
