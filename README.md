@@ -18,6 +18,10 @@ Email: [bibek99@vt.edu](mailto::bibek99@vt.edu)
 - The main program is located in the directory **gui-tkinter** along with all the dependent code and program files.
 
 
+# Software Engineering Process Involved
+
+- Our team Drunk Bits conducted weekly two scrum meetings to check and inform about the personal status of each developer.
+- We used an online virtual KANBAN board from www.kanbantool.com to track the progess of the project.
 
 
 ## Dependencies
