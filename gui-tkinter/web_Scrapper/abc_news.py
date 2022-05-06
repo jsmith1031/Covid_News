@@ -3,11 +3,8 @@ from bs4 import BeautifulSoup as bs
 import csv
 
 
-import pyttsx3
-engine = pyttsx3.init(driverName='nsss')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[7].id)
 
+# function that returns a dictionary containing headline,summary and link 
 
 def abc_news():
     # Load the webpage content
@@ -29,7 +26,7 @@ def abc_news():
         title = mlink.find('a')
         desc = mlink.find('div',class_='ContentRoll__Desc')
 
-
+        # insert headline, summary and link in the dictionary
         dic[title.get('href')] = title.string.upper()+"\n \n"+desc.string
 
 
