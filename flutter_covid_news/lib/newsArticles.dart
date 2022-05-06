@@ -3,6 +3,8 @@
 
 library covid_news;
 
+import 'dart:html' as html;
+
 //import 'dart:ffi';
 
 import 'package:flutter/material.dart';
@@ -105,64 +107,75 @@ class newsArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-      child: Card(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Color(0xFFF5F5F5),
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Row(
+        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+        /*
+      GestureDetector(
+        onTap: () => ......,
+        child: Card(...),
+      );
+
+      */
+        child: GestureDetector(
+          onTap: () => html.window.open(idk.link, "News Article"),
+          child: Card(
+            //child: Card(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            color: Color(0xFFF5F5F5),
+            child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-                  child: Image.network(
-                    idk.logoLink,
-                    //'https://picsum.photos/seed/100/600',
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Text(
-                          //'This is the sample article title',
-                          idk.title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20),
-                          /*style: FlutterFlowTheme.of(context)
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
+                      child: Image.network(
+                        idk.logoLink,
+                        //'https://picsum.photos/seed/100/600',
+                        width: 50,
+                        height: 50,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
+                            child: Text(
+                              //'This is the sample article title',
+                              idk.title,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 20),
+                              /*style: FlutterFlowTheme.of(context)
                               .bodyText1
                               .override(
                                 fontFamily: 'Poppins',
                                 fontSize: 24,
                               ),*/
-                        ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                  child: Text(
+                    idk.body,
+                    //'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+                    //style: FlutterFlowTheme.of(context).bodyText1,
+                    style: TextStyle(fontSize: 20),
                   ),
                 ),
               ],
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-              child: Text(
-                idk.body,
-                //'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-                //style: FlutterFlowTheme.of(context).bodyText1,
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }
 
