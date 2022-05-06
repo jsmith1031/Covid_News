@@ -1,11 +1,10 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-import pyttsx3
-engine = pyttsx3.init(driverName='nsss')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[7].id)
+
+# function that returns a dictionary containing headline,summary and link 
 def news_virginia_nbc():
+    #Load the webpage
     r = requests.get("https://www.nbc12.com/health/coronavirus/")
     # Parse the page into html for accessing the data
     html = r.content
@@ -24,7 +23,7 @@ def news_virginia_nbc():
         link = title.get('href')
         l = "https://www.nbc12.com/"+link
         if title.string is not None:
-
+            # update dictionary with headline, summary and link
             dic[l] = title.string.upper() + "\n \n" + desc.string
 
 
