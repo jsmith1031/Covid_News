@@ -19,6 +19,7 @@ Email: [bibek99@vt.edu](mailto::bibek99@vt.edu)
 * Python 3.0 or newer
 * * BeautifulSoup
 * * pyttsx3
+* * tkinter
 
 <br></br>
 ## Build Instructions
