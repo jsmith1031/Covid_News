@@ -30,13 +30,6 @@ def abc_news():
         dic[title.get('href')] = title.string.upper()+"\n \n"+desc.string
 
 
-        # print(desc.string)
-        #
-        # print(title.get('href'))
-        #
-        #
-        # print("-----------------------")
-
 
     return  dic
 
