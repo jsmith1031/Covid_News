@@ -1,11 +1,9 @@
 import requests
 from bs4 import BeautifulSoup as bs
 import csv
-#FOX NEWS
-import pyttsx3
-engine = pyttsx3.init(driverName='nsss')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[7].id)
+
+
+# function that returns a dictionary containing headline,summary and link 
 
 def fox_news():
 
@@ -34,7 +32,8 @@ def fox_news():
 
         linnnk = title.get('href')
         ab = "https://www.foxnews.com"+linnnk
-
+        
+        # update dictionary with headlines, summary and link
         dic[ab] = title.string.upper() + "\n \n"+ summary.string
 
     return dic
