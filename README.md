@@ -1,5 +1,5 @@
 # Covid_News
-A simple interface for viewing local and recent covid news, testing sites and case number statistics
+A simple interface for viewing local and recent covid news, articles and local cases based on zipcode for state of Virginia.
 
 ## Team Drunk Bits :
 * **Jeffrey Smith** > Github: [jsmith1031](https://github.com/jsmith1031)
