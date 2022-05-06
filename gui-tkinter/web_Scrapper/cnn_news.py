@@ -2,15 +2,13 @@ import requests
 from bs4 import BeautifulSoup as bs
 import csv
 #Load the webpage content
-import pyttsx3
-engine = pyttsx3.init(driverName='nsss')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[7].id)
 
+
+# function that returns a dictionary containing headline,summary and link 
 
 def cnn_news():
 
-
+    #Load the webpage content
     r = requests.get("https://www.cnn.com/specials/world/coronavirus-outbreak-intl-hnk")
 
     #Parse the page into html for accessing the data
@@ -40,7 +38,8 @@ def cnn_news():
                 hr=("https://www.cnn.com"+lk)
 
             if title.string is not None:
-
+                
+                # store headline and link to news in dictionary
                 dic[hr] = title.string.upper() + "\n \n"
     return dic
 
