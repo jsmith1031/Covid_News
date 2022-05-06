@@ -13,3 +13,5 @@
 - Users can directly enter the news website name either abc,cnn,fox,nbc to access the news from the respective websites.
 - Users can also directly enter the 5 digit ZipCode to get the COVID-19 cases in their locality. Please not the zipcode needs to be of Virginia state.
 - Also, users have an option to ask for articles by simply typing articles to access the latest updated articles about COVID-19.
+
+**Please Note that get_response.py program calls functions located inside webscrapper directory, so inorder to run the program they need to be in the same directory.**
