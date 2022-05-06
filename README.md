@@ -1,4 +1,4 @@
-# Covid_News
+# Covid_News (CoVBOT) 
 A simple interface for viewing local and recent covid news, articles and local cases based on zipcode for state of Virginia.
 
 ## Team Drunk Bits :
@@ -11,7 +11,12 @@ Email: [sakethv@vt.edu](mailto::sakethv@vt.edu)
 * **Bibek Sharma** > Github: [bs2626](https://github.com/bs2626)
 Email: [bibek99@vt.edu](mailto::bibek99@vt.edu)
 
-[Longer project summary]
+
+# Tkinter Based GUI for CoVBOT
+- Tkinter based gui is created for the bot. This allows BOT to be interactive with users and at the same time provide users with all the necessary infromation related to the COVID-19 Pandemic.
+- This BOT can be used to fetch news, articles and daily COVID-19 cases in each county based on the zipcode provided for the state of VA.
+
+
 
 ## Dependencies
 
