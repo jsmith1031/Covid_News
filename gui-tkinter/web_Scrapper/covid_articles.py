@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-import pyttsx3
-engine = pyttsx3.init(driverName='nsss')
-voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[7].id)
+
+# function that returns a dictionary containing headline,summary and link 
 def covid_articles():
+    
+    #Load the webpage
     r = requests.get("https://www.healthline.com/health-news")
     # Parse the page into html for accessing the data
     html = r.content
@@ -23,7 +23,8 @@ def covid_articles():
 
             ak= desc.get('href')
             lk = "https://www.healthline.com"+ak
-
+            
+            #update the dictionary with headline, summary and link
             dic[lk] = title.string.upper() + "\n \n" + desc.string
 
     return dic
