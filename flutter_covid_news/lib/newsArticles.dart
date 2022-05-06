@@ -108,13 +108,6 @@ class newsArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 0, 0),
-        /*
-      GestureDetector(
-        onTap: () => ......,
-        child: Card(...),
-      );
-
-      */
         child: GestureDetector(
           onTap: () => html.window.open(idk.link, "News Article"),
           child: Card(
